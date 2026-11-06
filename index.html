@@ -7,87 +7,188 @@
 <meta name="description" content="Selorm Buaka, GStat. PhD student in Applied Statistics and Research Methods at the University of Northern Colorado. Missing-data methods, rare-outcome prediction, and public health data systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1b1f24; --muted: #5b6470; --line: #e3e6ea;
-    --bg: #fbfbf9; --card: #ffffff; --accent: #0f5c4d; --accent-soft: #e6f0ed;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink: #e8eaed; --muted: #9aa3ad; --line: #2c3238;
-      --bg: #14171a; --card: #1b1f23; --accent: #6cc3ad; --accent-soft: #1f2e2a;
-    }
+    --ink: #17202a; --muted: #5a6573; --line: #e6e8ec; --bg: #fffdf9; --card: #ffffff;
+    --teal: #0f766e; --teal-s: #e0f2ef;
+    --coral: #e2553a; --coral-s: #fde9e4;
+    --indigo: #4f46e5; --indigo-s: #e9e8fd;
+    --amber: #c27806; --amber-s: #fdf1dc;
+    --plum: #9333ea; --plum-s: #f3e8fd;
+    --sky: #0284c7; --sky-s: #e0f1fb;
+    --deep: #0b2e3a;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 64px; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 Inter, system-ui, -apple-system, sans-serif; }
-  a { color: var(--accent); text-decoration: none; }
+  a { color: var(--teal); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.15; margin: 0; }
+  code { font-size: 0.9em; background: #f1f2f4; padding: 1px 5px; border-radius: 4px; }
 
-  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; gap: 20px; }
-  nav .brand { font-weight: 600; color: var(--ink); white-space: nowrap; }
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 20; background: rgba(11,46,58,0.92); backdrop-filter: blur(8px); }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 58px; gap: 20px; }
+  nav .brand { font-family: Fraunces, serif; font-weight: 700; color: #fff; font-size: 18px; white-space: nowrap; }
   nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; font-size: 14px; overflow-x: auto; scrollbar-width: none; }
   nav ul::-webkit-scrollbar { display: none; }
-  nav ul a { color: var(--muted); white-space: nowrap; }
-  nav ul a:hover { color: var(--ink); text-decoration: none; }
+  nav ul a { color: #c9dde2; white-space: nowrap; font-weight: 500; }
+  nav ul a:hover { color: #fff; text-decoration: none; }
 
-  header.hero { padding: 72px 0 40px; }
-  h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; line-height: 1.2; }
-  h1 { font-size: 44px; margin: 0 0 8px; letter-spacing: -0.01em; }
-  h1 .cred { font-size: 22px; color: var(--muted); font-weight: 400; }
-  .role { font-size: 18px; color: var(--muted); margin: 0 0 20px; }
-  .lede { font-size: 18px; max-width: 660px; margin: 0 0 24px; }
-  .links { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; font-weight: 500; color: var(--ink); background: var(--card); }
-  .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  @media (prefers-color-scheme: dark) { .btn.primary { color: #0d1513; } }
+  /* hero */
+  .hero {
+    position: relative; overflow: hidden; color: #fff;
+    background:
+      radial-gradient(circle at 88% 12%, rgba(251,113,133,0.55), transparent 35%),
+      radial-gradient(circle at 95% 95%, rgba(250,204,21,0.30), transparent 35%),
+      linear-gradient(120deg, #312e81 0%, #1e40af 35%, #0f766e 75%, #0d9488 100%);
+    padding: 88px 0 64px;
+  }
+  .hero .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.14); padding: 5px 12px; border-radius: 999px; margin-bottom: 20px; }
+  .hero h1 { font-size: 60px; font-weight: 700; letter-spacing: -0.01em; }
+  .hero h1 span { font-size: 26px; font-weight: 500; opacity: .8; margin-left: 6px; }
+  .hero .role { font-size: 19px; opacity: .9; margin: 10px 0 22px; }
+  .hero .lede { font-size: 20px; max-width: 700px; margin: 0 0 30px; line-height: 1.55; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #fff; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
+  .btn:hover { background: rgba(255,255,255,.2); text-decoration: none; }
+  .btn.solid { background: #fff; color: var(--deep); border-color: #fff; }
+  .btn.solid:hover { background: #ffe9e2; }
 
-  section { padding: 44px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 28px; margin: 0 0 20px; }
-  h3.sub { font-size: 17px; margin: 26px 0 10px; color: var(--muted); font-family: Inter, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 13px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .tag { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; }
+  .stat { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 16px 18px; }
+  .stat b { display: block; font-family: Fraunces, serif; font-size: 30px; font-weight: 700; }
+  .stat small { font-size: 13px; opacity: .85; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; }
-  .card h3 { font-size: 19px; margin: 0 0 6px; }
-  .card .kicker { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
-  .card p { margin: 0 0 14px; font-size: 15px; }
-  .card .stat { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
-  .card .foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; font-weight: 500; }
+  /* sections */
+  section { padding: 72px 0; }
+  section.alt { background: #f6f4ef; }
+  .sec-head { margin-bottom: 32px; }
+  .sec-head .kick { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .sec-head h2 { font-size: 38px; margin-top: 6px; }
+  .sec-head p { color: var(--muted); max-width: 680px; margin: 10px 0 0; font-size: 17px; }
 
-  ol.pubs, ul.plain { padding-left: 0; list-style: none; margin: 0; }
-  ol.pubs li, ul.plain li { margin: 0 0 14px; font-size: 15px; }
-  ol.pubs .t { font-style: italic; }
-  ol.pubs .meta { color: var(--muted); font-size: 14px; }
+  /* about */
+  .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+  .about p { font-size: 17px; margin: 0 0 16px; }
+  .quick { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; border-top: 5px solid var(--coral); }
+  .quick h3 { font-size: 20px; margin-bottom: 12px; }
+  .quick dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; font-size: 14.5px; }
+  .quick dt { color: var(--muted); font-weight: 500; }
+  .quick dd { margin: 0; }
 
-  .timeline { display: grid; gap: 24px; }
-  .t-item { display: grid; grid-template-columns: 150px 1fr; gap: 20px; }
-  .t-when { color: var(--muted); font-size: 14px; padding-top: 2px; }
-  .t-item h3 { font-size: 18px; margin: 0; }
-  .t-item .where { color: var(--muted); font-size: 14px; margin: 2px 0 6px; }
-  .t-item ul { margin: 6px 0 0; padding-left: 18px; font-size: 15px; }
-  .t-item ul li { margin-bottom: 4px; }
+  /* themes */
+  .themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .theme { border-radius: 14px; padding: 24px; }
+  .theme .ic { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; font-size: 20px; color: #fff; margin-bottom: 14px; font-weight: 700; font-family: Fraunces, serif; }
+  .theme h3 { font-size: 21px; margin-bottom: 8px; }
+  .theme p { margin: 0; font-size: 15px; color: #33404d; }
+  .t-teal { background: var(--teal-s); } .t-teal .ic { background: var(--teal); }
+  .t-coral { background: var(--coral-s); } .t-coral .ic { background: var(--coral); }
+  .t-indigo { background: var(--indigo-s); } .t-indigo .ic { background: var(--indigo); }
 
-  ul.repos { list-style: none; padding: 0; margin: 0; }
-  ul.repos li { padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; font-size: 15px; }
-  ul.repos li span { color: var(--muted); font-size: 14px; text-align: right; }
+  /* featured research */
+  .feat { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .paper { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgba(0,0,0,.03); transition: transform .15s, box-shadow .15s; }
+  .paper:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(15,40,50,.09); }
+  .paper .band { height: 8px; }
+  .paper .body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+  .paper .tag { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
+  .paper h3 { font-size: 22px; margin-bottom: 10px; }
+  .paper p { font-size: 15px; margin: 0 0 12px; }
+  .paper ul { margin: 0 0 16px; padding-left: 18px; font-size: 14.5px; color: #33404d; }
+  .paper ul li { margin-bottom: 4px; }
+  .nums { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .nums span { font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 6px; background: #f3f4f6; color: #374151; }
+  .paper .foot { margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+  .pill { font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 8px; color: #fff; }
+  .pill:hover { text-decoration: none; filter: brightness(1.08); }
+  .pill.ghost { background: transparent !important; border: 1.5px solid currentColor; }
+  .c-teal .band, .c-teal .pill { background: var(--teal); } .c-teal .tag { background: var(--teal-s); color: var(--teal); } .c-teal .pill.ghost { color: var(--teal); }
+  .c-coral .band, .c-coral .pill { background: var(--coral); } .c-coral .tag { background: var(--coral-s); color: var(--coral); } .c-coral .pill.ghost { color: var(--coral); }
+  .c-indigo .band, .c-indigo .pill { background: var(--indigo); } .c-indigo .tag { background: var(--indigo-s); color: var(--indigo); } .c-indigo .pill.ghost { color: var(--indigo); }
+  .c-amber .band, .c-amber .pill { background: var(--amber); } .c-amber .tag { background: var(--amber-s); color: var(--amber); } .c-amber .pill.ghost { color: var(--amber); }
 
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .contact p { margin: 0 0 8px; }
-  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+  /* applied projects */
+  .proj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .pc { background: var(--card); border-radius: 14px; padding: 22px; border: 1px solid var(--line); border-left: 6px solid; display: flex; flex-direction: column; }
+  .pc .meta { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .pc h3 { font-size: 18px; margin-bottom: 8px; }
+  .pc p { font-size: 14.5px; margin: 0 0 12px; color: #33404d; }
+  .pc a.more { margin-top: auto; font-size: 14px; font-weight: 600; }
+  .b-teal { border-left-color: var(--teal); } .b-teal .meta, .b-teal a.more { color: var(--teal); }
+  .b-coral { border-left-color: var(--coral); } .b-coral .meta, .b-coral a.more { color: var(--coral); }
+  .b-indigo { border-left-color: var(--indigo); } .b-indigo .meta, .b-indigo a.more { color: var(--indigo); }
+  .b-amber { border-left-color: var(--amber); } .b-amber .meta, .b-amber a.more { color: var(--amber); }
+  .b-plum { border-left-color: var(--plum); } .b-plum .meta, .b-plum a.more { color: var(--plum); }
+  .b-sky { border-left-color: var(--sky); } .b-sky .meta, .b-sky a.more { color: var(--sky); }
 
-  @media (max-width: 680px) {
-    h1 { font-size: 34px; }
+  /* publications */
+  .pubgroup { margin-bottom: 30px; }
+  .pubgroup h3 { font-family: Inter, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; padding: 4px 12px; border-radius: 6px; }
+  .pub { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; font-size: 15px; }
+  .pub i { color: var(--ink); }
+  .pub .m { display: block; margin-top: 6px; font-size: 13.5px; color: var(--muted); }
+
+  /* experience */
+  .tl { position: relative; padding-left: 34px; }
+  .tl::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 3px; border-radius: 2px; background: linear-gradient(var(--coral), var(--amber), var(--teal), var(--indigo), var(--plum)); }
+  .job { position: relative; margin-bottom: 30px; }
+  .job::before { content: ""; position: absolute; left: -32px; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 4px solid var(--dot, var(--teal)); }
+  .job .when { font-size: 13px; font-weight: 700; color: var(--dot, var(--teal)); text-transform: uppercase; letter-spacing: .05em; }
+  .job h3 { font-size: 21px; margin: 2px 0; }
+  .job .where { color: var(--muted); font-size: 14.5px; margin-bottom: 8px; }
+  .job ul { margin: 0; padding-left: 18px; font-size: 15px; }
+  .job ul li { margin-bottom: 4px; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .sk { background: var(--card); border-radius: 14px; padding: 22px; border: 1px solid var(--line); }
+  .sk h3 { font-size: 19px; margin-bottom: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 13.5px; font-weight: 500; padding: 5px 11px; border-radius: 999px; }
+  .s1 .chip { background: var(--coral-s); color: #a33a24; }
+  .s2 .chip { background: var(--indigo-s); color: #3730a3; }
+  .s3 .chip { background: var(--teal-s); color: #0b5952; }
+
+  /* creds */
+  .creds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .cr { background: var(--card); border-radius: 14px; padding: 22px; border: 1px solid var(--line); border-top: 5px solid; }
+  .cr h3 { font-size: 19px; margin-bottom: 14px; }
+  .cr ul { list-style: none; padding: 0; margin: 0; font-size: 14.5px; }
+  .cr li { margin-bottom: 12px; }
+  .cr li small { display: block; color: var(--muted); font-size: 13px; }
+
+  /* events */
+  .events { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ev { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .ev .d { flex: none; width: 56px; text-align: center; border-radius: 8px; padding: 6px 0; font-size: 12px; font-weight: 700; line-height: 1.2; color: #fff; }
+  .ev b { display: block; font-size: 15px; }
+  .ev span { font-size: 13.5px; color: var(--muted); }
+
+  /* comments */
+  .cmt { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cm { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-size: 14.5px; }
+  .cm .ag { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--sky); }
+  .cm b { display: block; margin: 4px 0 6px; font-size: 15px; }
+  .cm a { font-size: 13.5px; font-weight: 600; }
+
+  /* contact */
+  .cta { color: #fff; border-radius: 22px; padding: 48px; background: radial-gradient(circle at 90% 10%, rgba(226,85,58,.6), transparent 45%), linear-gradient(135deg, #4f46e5, #0f766e); }
+  .cta h2 { font-size: 36px; margin-bottom: 10px; }
+  .cta p { font-size: 17px; max-width: 620px; opacity: .92; margin: 0 0 24px; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  @media (max-width: 860px) {
+    .about, .feat, .themes, .proj, .skills, .creds, .events, .cmt { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 42px; }
+    .hero h1 span { display: block; margin: 6px 0 0; font-size: 20px; }
+    .sec-head h2 { font-size: 30px; }
     nav .brand { display: none; }
-    .grid, .two { grid-template-columns: 1fr; }
-    .t-item { grid-template-columns: 1fr; gap: 2px; }
-    ul.repos li { flex-direction: column; gap: 2px; }
-    ul.repos li span { text-align: left; }
+    .cta { padding: 32px 24px; }
   }
 </style>
 </head>
@@ -97,276 +198,413 @@
   <div class="wrap">
     <a class="brand" href="#top">Selorm Buaka</a>
     <ul>
+      <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#service">Comments</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#comments">Policy</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<main class="wrap" id="top">
-
-  <header class="hero">
-    <h1>Selorm Buaka <span class="cred">GStat</span></h1>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Applied Statistics · Public Health · Missing Data</div>
+    <h1>Selorm Buaka <span>GStat</span></h1>
     <p class="role">PhD Student, Applied Statistics &amp; Research Methods · University of Northern Colorado</p>
-    <p class="lede">I develop statistical methods and open tools for prediction when public health data are incomplete. My work focuses on rare outcomes such as preterm birth and youth suicide attempts, and on the quality of the data systems public health agencies depend on.</p>
-    <div class="links">
-      <a class="btn primary" href="#research">Research</a>
+    <p class="lede">I build statistical methods and open tools for prediction when public health data are incomplete, so that agencies can trust the numbers behind decisions about preterm birth, youth suicide prevention, and community health programs.</p>
+    <div class="btns">
+      <a class="btn solid" href="#research">Explore my research</a>
       <a class="btn" href="https://github.com/SelormB">GitHub</a>
       <a class="btn" href="https://orcid.org/0009-0005-3991-4859">ORCID</a>
       <a class="btn" href="https://linkedin.com/in/othniel-buaka">LinkedIn</a>
-      <a class="btn" href="mailto:othnielbuaka@gmail.com">Email</a>
+      <a class="btn" href="mailto:othnielbuaka@gmail.com">Email me</a>
     </div>
-  </header>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>I'm a doctoral student in Applied Statistics and Research Methods at the University of Northern Colorado and an ASA Graduate Statistician (GStat). I work as an evaluator on UNC's Garrett Lee Smith Suicide Prevention Grant and as a research consultant in UNC's Research Consulting Lab. In 2026 I completed data systems internships with Weld County Public Health &amp; Environment and the Health District of Northern Larimer County, and an HPC apprenticeship with the Rocky Mountain Advanced Computing Consortium.</p>
-    <p>I earned my BSc in Statistics at Kwame Nkrumah University of Science and Technology in Ghana, then spent two and a half years as a business analyst at Sync Consult in Accra before graduate study. My research asks a practical question: when the data agencies rely on are missing in structured, documented ways, how do we build predictions and evaluations that stay honest?</p>
-    <div class="tags">
-      <span class="tag">Missing-data methods</span>
-      <span class="tag">Clinical prediction &amp; calibration</span>
-      <span class="tag">Complex survey design</span>
-      <span class="tag">Knowledge distillation</span>
-      <span class="tag">Program evaluation</span>
-      <span class="tag">Public health data systems</span>
-      <span class="tag">R · Python · SAS · SQL · SPSS</span>
-      <span class="tag">Tableau · QGIS</span>
-      <span class="tag">HPC / Slurm</span>
+    <div class="stats">
+      <div class="stat"><b>4</b><small>Sole-author preprints, 2026</small></div>
+      <div class="stat"><b>14.5M</b><small>U.S. births modeled in MAKD</small></div>
+      <div class="stat"><b>1M+</b><small>YRBS records coded by missingness provenance</small></div>
+      <div class="stat"><b>5</b><small>Statistical comments to federal agencies</small></div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section id="research">
-    <h2>Research</h2>
-    <div class="grid">
+<main>
 
-      <article class="card">
-        <div class="kicker">Methods · Youth behavioral health</div>
-        <h3>Not Asked or Not Answered? Missingness Provenance in YRBS</h3>
-        <p>Every predictor value in the combined CDC Youth Risk Behavior Survey, 2015–2023, coded by why it was absent: not asked by the site, not on that year's questionnaire, or not answered. I compared ten models for past-year and injurious suicide attempts. Provenance-aware indicators gave small, consistent AUROC gains, and the gains grew when whole jurisdictions were held out. BRFSS 2023 ACE data served as a contrasting adult test bed.</p>
-        <div class="stat">1,008,297 records · 250 site-year surveys · 12 pre-specified sensitivity analyses</div>
-        <div class="foot">
-          <a href="https://doi.org/10.20944/preprints202610.2496.v1">Preprint →</a>
-          <a href="https://github.com/SelormB/p2-yrbs-provenance">Code →</a>
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="sec-head"><div class="kick" style="color:var(--coral)">About me</div><h2>Statistics that holds up when the data don't</h2></div>
+      <p>I'm a doctoral student in Applied Statistics and Research Methods at the University of Northern Colorado and an American Statistical Association Graduate Statistician (GStat). My research asks a practical question: when the data public health agencies rely on are missing in structured, documented ways, how do we build predictions and evaluations that stay honest?</p>
+      <p>I work on that question from two directions. In methods research, I develop missing-data-aware prediction models and open benchmarks using national surveillance and vital-statistics data such as NCHS natality files, YRBS, and BRFSS. In applied work, I evaluate programs and audit data systems alongside the people who run them: a campus suicide prevention grant, a county mobile health unit, and a countywide youth behavioral health data strategy.</p>
+      <p>Before graduate school I earned a BSc in Statistics at Kwame Nkrumah University of Science and Technology in Ghana and spent two and a half years as a business analyst at Sync Consult in Accra. There I analyzed more than 200 companies for investor readiness and supported a Mastercard Foundation COVID-19 recovery program for small businesses. That work taught me to make analysis useful to the people who have to act on it.</p>
+    </div>
+    <aside class="quick">
+      <h3>At a glance</h3>
+      <dl>
+        <dt>Now</dt><dd>PhD student, UNC (2025–)</dd>
+        <dt>Roles</dt><dd>Evaluator, GLS Suicide Prevention Grant · Research Consultant, UNC Research Consulting Lab</dd>
+        <dt>Credential</dt><dd>GStat, American Statistical Association</dd>
+        <dt>Focus</dt><dd>Missing data, rare-outcome prediction, survey methods, program evaluation</dd>
+        <dt>Data</dt><dd>NCHS natality, YRBS, BRFSS, CDC WONDER, AHRF, PLACES</dd>
+        <dt>Based in</dt><dd>Greeley, Colorado</dd>
+        <dt>From</dt><dd>Ghana</dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--indigo)">Research themes</div><h2>Three threads run through my work</h2></div>
+    <div class="themes">
+      <div class="theme t-teal"><div class="ic">1</div><h3>Why data are missing matters</h3><p>Not asked, not on the questionnaire, suppressed, or not answered: each kind of missingness carries different information. I build models and benchmarks that keep track of where each gap came from.</p></div>
+      <div class="theme t-coral"><div class="ic">2</div><h3>Predicting rare, high-stakes outcomes</h3><p>Preterm birth, very low birthweight, and youth suicide attempts are rare and the cost of error is high. I focus on calibration, subgroup performance, and honest validation with held-out years and jurisdictions.</p></div>
+      <div class="theme t-indigo"><div class="ic">3</div><h3>Data systems people can trust</h3><p>From county mobile health units to national vital statistics, I audit data quality with formal frameworks such as FCSM and turn the findings into dashboards, scorecards, and recommendations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--teal)">Featured research</div><h2>Methods &amp; open data</h2><p>Four sole-author projects released in 2026, each with a public preprint and open code.</p></div>
+    <div class="feat">
+
+      <article class="paper c-coral">
+        <div class="band"></div>
+        <div class="body">
+          <span class="tag">Youth behavioral health · Methods</span>
+          <h3>Not Asked or Not Answered? Missingness Provenance in Youth Suicide-Attempt Prediction</h3>
+          <p>I coded every predictor value in the combined CDC Youth Risk Behavior Survey (2015–2023) by why it was absent, then compared ten models for past-year and injurious suicide attempts.</p>
+          <ul>
+            <li>Provenance-aware indicators gave small, consistent AUROC gains.</li>
+            <li>Gains grew when whole jurisdictions were held out and were not explained by survey recognition.</li>
+            <li>Survey-weighted evaluation with PSU cluster bootstrap and 12 pre-specified sensitivity analyses. BRFSS 2023 ACE data served as a contrasting adult test bed.</li>
+          </ul>
+          <div class="nums"><span>1,008,297 records</span><span>250 site-year surveys</span><span>10 models</span></div>
+          <div class="foot"><a class="pill" href="https://doi.org/10.20944/preprints202610.2496.v1">Read preprint</a><a class="pill ghost" href="https://github.com/SelormB/p2-yrbs-provenance">Code</a></div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="kicker">Benchmark · Open data</div>
-        <h3>PH-MissBench</h3>
-        <p>An open benchmark of rare-outcome prediction tasks built from NCHS natality public-use files, in which every predictor cell carries its NCHS-documented missingness class. It includes early preterm birth and very low birthweight tasks with a temporal train/test split. Task files were frozen and hashed before any baseline was run, and the build reproduces NCHS's published birth totals exactly.</p>
-        <div class="stat">10.5 million singleton births, 2022–2024 · Tasks frozen v1.0 · MIT code, CC BY 4.0 tasks</div>
-        <div class="foot">
-          <a href="https://doi.org/10.20944/preprints202610.2437.v1">Preprint →</a>
-          <a href="https://github.com/SelormB/ph-missbench">Code &amp; tasks →</a>
+      <article class="paper c-teal">
+        <div class="band"></div>
+        <div class="body">
+          <span class="tag">Benchmark · Open data</span>
+          <h3>PH-MissBench: Rare-Outcome Prediction Tasks with Real, Agency-Documented Missingness</h3>
+          <p>An open benchmark from NCHS natality public-use files in which every predictor cell carries its NCHS-documented missingness class, so missing-data methods can be compared on real patterns rather than simulated ones.</p>
+          <ul>
+            <li>Early preterm birth (&lt;34 weeks) and very low birthweight tasks with a temporal train/test split.</li>
+            <li>Task files frozen and hashed before any baseline was run.</li>
+            <li>Reproduces NCHS published birth totals exactly. Six missing-data baselines with stratified bootstrap intervals.</li>
+          </ul>
+          <div class="nums"><span>10.5M singleton births</span><span>2022–2024</span><span>MIT · CC BY 4.0</span></div>
+          <div class="foot"><a class="pill" href="https://doi.org/10.20944/preprints202610.2437.v1">Read preprint</a><a class="pill ghost" href="https://github.com/SelormB/ph-missbench">Code &amp; tasks</a></div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="kicker">Methods · Maternal &amp; child health · Dissertation</div>
-        <h3>Missingness-Aware Knowledge Distillation (MAKD)</h3>
-        <p>A gradient-boosted teacher trained on complete U.S. birth-certificate records, distilled into students that operate under state-specific item missingness calibrated from CDC WONDER for 51 jurisdictions. On naturally incomplete 2024 records, the distilled student outperformed mean and iterative imputation, with paired bootstrap intervals excluding zero.</p>
-        <div class="stat">14.5 million births, 2016–2024 · Low birthweight &amp; preterm birth</div>
-        <div class="foot">
-          <a href="https://doi.org/10.20944/preprints202610.2567.v1">Preprint →</a>
-          <a href="https://github.com/SelormB/makd-natality">Code →</a>
+      <article class="paper c-indigo">
+        <div class="band"></div>
+        <div class="body">
+          <span class="tag">Maternal &amp; child health · Dissertation</span>
+          <h3>Missingness-Aware Knowledge Distillation (MAKD) for Low Birthweight and Preterm Birth</h3>
+          <p>A gradient-boosted teacher trained on complete U.S. birth-certificate records, distilled into student models that operate under the item missingness each state actually reports.</p>
+          <ul>
+            <li>State-specific missingness calibrated from CDC WONDER for 51 jurisdictions.</li>
+            <li>On naturally incomplete 2024 records, the distilled student outperformed mean and iterative imputation, with paired bootstrap intervals excluding zero.</li>
+            <li>Extends my Ghana neonatal risk study to U.S. national data.</li>
+          </ul>
+          <div class="nums"><span>14.5M births</span><span>2016–2024</span><span>51 jurisdictions</span></div>
+          <div class="foot"><a class="pill" href="https://doi.org/10.20944/preprints202610.2567.v1">Read preprint</a><a class="pill ghost" href="https://github.com/SelormB/makd-natality">Code</a></div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="kicker">Data product · Vital statistics</div>
-        <h3>County Birth-Record Completeness Index</h3>
-        <p>A reproducible, suppression-aware county measure of birth-certificate item completeness from CDC WONDER, linked to HRSA AHRF and CDC PLACES. Suppressed counts are treated as interval-censored, and every released file passes a fail-closed statistical disclosure audit. The index was validated by simulation and against NCHS published state figures.</p>
-        <div class="stat">570 counties · 26.4 million births, 2016–2024 · Python package <code>cbrci</code> (MIT)</div>
-        <div class="foot">
-          <a href="https://doi.org/10.20944/preprints202610.2542.v1">Preprint →</a>
-          <a href="https://github.com/SelormB/cbrci">Code →</a>
+      <article class="paper c-amber">
+        <div class="band"></div>
+        <div class="body">
+          <span class="tag">Vital statistics · Data product</span>
+          <h3>County Birth-Record Completeness Index (CBRCI), 2016–2024</h3>
+          <p>A reproducible, suppression-aware county measure of birth-certificate item completeness from CDC WONDER, linked to HRSA's Area Health Resources File and CDC PLACES.</p>
+          <ul>
+            <li>Suppressed counts treated as interval-censored: bounds, truncated beta-binomial multiple imputation, and interval-censored likelihood.</li>
+            <li>Pre-specified reliability rules decide between a composite score and domain scores.</li>
+            <li>Every released file passes a fail-closed disclosure audit. Validated by simulation and against NCHS state figures.</li>
+          </ul>
+          <div class="nums"><span>570 counties</span><span>26.4M births</span><span>Python package <code>cbrci</code></span></div>
+          <div class="foot"><a class="pill" href="https://doi.org/10.20944/preprints202610.2542.v1">Read preprint</a><a class="pill ghost" href="https://github.com/SelormB/cbrci">Code</a></div>
         </div>
       </article>
 
     </div>
+  </div>
+</section>
 
-    <h3 class="sub">Applied projects</h3>
-    <ul class="repos">
-      <li><a href="https://github.com/SelormB/Mobile_Health_Unit">Mobile Health Unit data systems assessment</a><span>Weld County · FCSM data-quality framework · dashboards</span></li>
-      <li><a href="https://github.com/SelormB/Youth_Behavioral_Health_Data_Strategy">Youth behavioral health data strategy</a><span>Larimer County · CO-MTSS · survey crosswalks</span></li>
-      <li><a href="https://github.com/SelormB/Adverse_childhood_experiences_adult_health">ACEs and adult health (BRFSS)</a><span>Ordinal, binary &amp; multinomial regression in R</span></li>
-      <li><a href="https://github.com/SelormB/perimenopause_strength_training_narrative_inquiry">The Weight of the Room</a><span>Qualitative narrative inquiry</span></li>
-      <li><a href="https://github.com/SelormB/employee_outcomes_permanova_analysis">Employee outcomes PERMANOVA analysis</a><span>Multivariate analysis</span></li>
-      <li><a href="https://github.com/SelormB/Hpc_new">HPC research workflows</a><span>Alpine cluster · Slurm batch &amp; interactive jobs</span></li>
-      <li><a href="https://github.com/SelormB/Epidemiology">Epidemiology</a><span>Python analyses</span></li>
-    </ul>
-  </section>
+<section id="projects" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--plum)">Applied &amp; community projects</div><h2>Evaluation, data systems &amp; analysis</h2><p>Work done with public health departments, university programs, and community partners.</p></div>
+    <div class="proj">
 
-  <section id="publications">
-    <h2>Publications</h2>
-
-    <h3 class="sub">Preprints</h3>
-    <ol class="pubs">
-      <li>Buaka, S. (2026). <span class="t">Not Asked or Not Answered? Missingness Provenance in Youth Suicide-Attempt Prediction Using the Combined Youth Risk Behavior Survey, 2015–2023.</span> Preprints.org. <a href="https://doi.org/10.20944/preprints202610.2496.v1">doi:10.20944/preprints202610.2496.v1</a></li>
-      <li>Buaka, S. (2026). <span class="t">PH-MissBench: Rare-Outcome Prediction Tasks with Real, Agency-Documented Missingness from U.S. Birth Records.</span> Preprints.org. <a href="https://doi.org/10.20944/preprints202610.2437.v1">doi:10.20944/preprints202610.2437.v1</a></li>
-      <li>Buaka, S. (2026). <span class="t">Missingness-Aware Knowledge Distillation for Low Birthweight and Preterm Birth Prediction Under State-Specific Item Missingness in U.S. Birth Certificates.</span> Preprints.org. <a href="https://doi.org/10.20944/preprints202610.2567.v1">doi:10.20944/preprints202610.2567.v1</a></li>
-      <li>Buaka, S. (2026). <span class="t">County Birth-Record Completeness in Public U.S. Natality Data: A Suppression-Aware County Index, 2016–2024.</span> Preprints.org. <a href="https://doi.org/10.20944/preprints202610.2542.v1">doi:10.20944/preprints202610.2542.v1</a></li>
-    </ol>
-
-    <h3 class="sub">Submitted</h3>
-    <ol class="pubs">
-      <li>Buaka, S., Yu, H., &amp; Huang, H. (2026). <span class="t">Optimizing Neonatal Risk Detection with High-Performance Machine Learning Models Using Maternal, Prenatal, and Environmental Predictors in Ghana.</span> <span class="meta">Submitted to Maternal and Child Health Journal.</span></li>
-    </ol>
-
-    <h3 class="sub">In preparation</h3>
-    <ol class="pubs">
-      <li>Merchant, W., Buaka, S., et al. (2026). <span class="t">Machine Learning Methods for Structurally Complex Branching Survey Data.</span></li>
-      <li>Powell, E., Buaka, S., &amp; Heacox, D. (2026). <span class="t">The Weight of the Room: A Narrative Inquiry into the Perceived Culture of Strength Training Spaces Among Perimenopausal Women.</span></li>
-    </ol>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="timeline">
-
-      <div class="t-item">
-        <div class="t-when">Jan 2025 – present</div>
-        <div>
-          <h3>Evaluator, GLS Suicide Prevention Grant</h3>
-          <div class="where">University of Northern Colorado</div>
-          <ul>
-            <li>Led a comprehensive suicide prevention needs assessment for the Garrett Lee Smith grant.</li>
-            <li>Analyzed CDC, BRFSS, NCHA, 911 dispatch, and county public health data to identify trends, risk factors, and service gaps.</li>
-            <li>Interviewed stakeholders and combined quantitative and qualitative findings to guide campus prevention planning and grant reporting.</li>
-          </ul>
-        </div>
+      <div class="pc b-teal">
+        <div class="meta">Weld County · 2026</div>
+        <h3>Mobile Health Unit Data Systems Assessment</h3>
+        <p>Assessed MHU data across three public health divisions using the FCSM data quality framework (11 dimensions). Found 35% address incompleteness and cross-division definitional gaps across 54+ events. Built division-level scorecards and internal and external dashboards for leadership and state funders.</p>
+        <a class="more" href="https://github.com/SelormB/Mobile_Health_Unit">View repository →</a>
       </div>
 
-      <div class="t-item">
-        <div class="t-when">Aug 2023 – present</div>
-        <div>
-          <h3>Research Consultant</h3>
-          <div class="where">Research Consulting Lab, University of Northern Colorado</div>
-          <ul>
-            <li>Advise faculty, staff, and students from research question through study design, data management, and analysis.</li>
-            <li>Run hands-on training in R, SAS, and SPSS supporting published articles and dissertations.</li>
-          </ul>
-        </div>
+      <div class="pc b-coral">
+        <div class="meta">Larimer County · 2026</div>
+        <h3>Youth Behavioral Health Data Strategy</h3>
+        <p>Supported the MHSU Alliance and Health District of Northern Larimer County with environmental scans of district data systems, survey-instrument crosswalks, and evaluation of universal screening tools, toward shared countywide metrics aligned with CO-MTSS.</p>
+        <a class="more" href="https://github.com/SelormB/Youth_Behavioral_Health_Data_Strategy">View repository →</a>
       </div>
 
-      <div class="t-item">
-        <div class="t-when">May – Aug 2026</div>
-        <div>
-          <h3>Public Health Data Systems Analyst Intern</h3>
-          <div class="where">Weld County Public Health &amp; Environment, Greeley, CO</div>
-          <ul>
-            <li>Assessed Mobile Health Unit data systems across three divisions using the FCSM data quality framework (11 dimensions).</li>
-            <li>Audited operational data, finding 35% address incompleteness and cross-division definitional inconsistencies across 54+ events.</li>
-            <li>Built division-level data quality scorecards and designed internal and external MHU dashboards for leadership, commissioners, and state funders.</li>
-          </ul>
-        </div>
+      <div class="pc b-indigo">
+        <div class="meta">UNC · 2025–present</div>
+        <h3>GLS Suicide Prevention Needs Assessment</h3>
+        <p>Led a needs assessment for the Garrett Lee Smith grant. I analyzed CDC, BRFSS, NCHA, 911 dispatch, and county data and interviewed mental health professionals, university staff, and community organizations to identify service gaps and barriers to care.</p>
       </div>
 
-      <div class="t-item">
-        <div class="t-when">May – Aug 2026</div>
-        <div>
-          <h3>Behavioral Health Data Systems Analyst Intern</h3>
-          <div class="where">Health District of Northern Larimer County / MHSU Alliance, Fort Collins, CO</div>
-          <ul>
-            <li>Ran environmental scans and cross-district analyses of youth behavioral health data systems across Larimer County school districts.</li>
-            <li>Built crosswalks of school-based survey instruments and supported shared countywide metrics aligned with CO-MTSS.</li>
-            <li>Evaluated universal behavioral health screening tools and made recommendations to the Youth Mental Health Task Force.</li>
-          </ul>
-        </div>
+      <div class="pc b-amber">
+        <div class="meta">Ghana · Maternal health</div>
+        <h3>Neonatal Risk Detection with Machine Learning</h3>
+        <p>Compared logistic regression, random forest, SVM, naive Bayes, XGBoost, and KNN for predicting low birth weight from maternal, prenatal, and environmental predictors. Submitted to <i>Maternal and Child Health Journal</i>.</p>
       </div>
 
-      <div class="t-item">
-        <div class="t-when">Jan 2026</div>
-        <div>
-          <h3>High Performance Computing Apprentice</h3>
-          <div class="where">Computing Center, University of Colorado Boulder</div>
-          <ul>
-            <li>One of 40 participants selected for the RMACC HPC Student Cohort.</li>
-            <li>Worked with node provisioning, Slurm scheduler monitoring, and maintenance planning on production research systems.</li>
-          </ul>
-        </div>
+      <div class="pc b-plum">
+        <div class="meta">BRFSS · R</div>
+        <h3>Adverse Childhood Experiences &amp; Adult Health</h3>
+        <p>Ordinal, binary, and multinomial regression on BRFSS data examining how adverse childhood experiences relate to health outcomes in adulthood.</p>
+        <a class="more" href="https://github.com/SelormB/Adverse_childhood_experiences_adult_health">View repository →</a>
       </div>
 
-      <div class="t-item">
-        <div class="t-when">Aug – Dec 2024</div>
-        <div>
-          <h3>Graduate Instructor &amp; Tutor</h3>
-          <div class="where">Introduction to Statistical Analysis · Statistics Support Center, University of Northern Colorado</div>
-        </div>
+      <div class="pc b-sky">
+        <div class="meta">RMACC · HPC</div>
+        <h3>High-Performance Computing Workflows</h3>
+        <p>Ran batch and interactive Slurm jobs on the Alpine supercomputer for simulation-heavy statistical workflows, managing CPU, memory, and wall-time for scalable, reproducible analyses.</p>
+        <a class="more" href="https://github.com/SelormB/Hpc_new">View repository →</a>
       </div>
 
-      <div class="t-item">
-        <div class="t-when">Jan 2021 – Jul 2023</div>
-        <div>
-          <h3>Business Analyst</h3>
-          <div class="where">Sync Consult, Accra, Ghana</div>
-          <ul>
-            <li>Statistical, market, and financial analysis for 200+ companies toward investor readiness.</li>
-            <li>Supported the Invest in Africa and Mastercard Foundation COVID-19 Recovery and Resilience Program, and grant evaluation for 42 SMEs.</li>
-          </ul>
-        </div>
+      <div class="pc b-coral">
+        <div class="meta">Qualitative · Women's health</div>
+        <h3>The Weight of the Room</h3>
+        <p>A narrative inquiry into how perimenopausal women experience the culture of strength-training spaces, using interviews and thematic analysis. Manuscript in preparation with E. Powell and D. Heacox.</p>
+        <a class="more" href="https://github.com/SelormB/perimenopause_strength_training_narrative_inquiry">View repository →</a>
+      </div>
+
+      <div class="pc b-teal">
+        <div class="meta">Multivariate</div>
+        <h3>Employee Outcomes PERMANOVA</h3>
+        <p>Permutational multivariate analysis of variance to compare multi-outcome employee profiles across groups.</p>
+        <a class="more" href="https://github.com/SelormB/employee_outcomes_permanova_analysis">View repository →</a>
+      </div>
+
+      <div class="pc b-indigo">
+        <div class="meta">Ghana · Time series</div>
+        <h3>Food Security &amp; Macroeconomics</h3>
+        <p>Co-integration and error correction models (ADF and Phillips-Perron tests, Johansen co-integration, VECM) on long- and short-run links among food security, macroeconomic, and environmental indicators in Ghana.</p>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="education">
-    <h2>Education &amp; Credentials</h2>
-    <div class="two">
-      <div>
-        <h3 class="sub" style="margin-top:0">Education</h3>
-        <ul class="plain">
-          <li><strong>PhD, Applied Statistics and Research Methods</strong><br><span class="meta" style="color:var(--muted);font-size:14px">University of Northern Colorado · 2025 – present</span></li>
-          <li><strong>MS, Applied Statistics and Research Methods</strong><br><span style="color:var(--muted);font-size:14px">University of Northern Colorado · 2023 – 2025</span></li>
-          <li><strong>BSc, Statistics</strong><br><span style="color:var(--muted);font-size:14px">Kwame Nkrumah University of Science and Technology, Ghana · 2016 – 2020</span></li>
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--coral)">Publications</div><h2>Papers &amp; manuscripts</h2></div>
+
+    <div class="pubgroup">
+      <h3 style="background:var(--teal-s);color:var(--teal)">Preprints</h3>
+      <div class="pub">Buaka, S. (2026). <i>Not Asked or Not Answered? Missingness Provenance in Youth Suicide-Attempt Prediction Using the Combined Youth Risk Behavior Survey, 2015–2023.</i> Preprints.org.<span class="m"><a href="https://doi.org/10.20944/preprints202610.2496.v1">doi:10.20944/preprints202610.2496.v1</a> · <a href="https://github.com/SelormB/p2-yrbs-provenance">code</a></span></div>
+      <div class="pub">Buaka, S. (2026). <i>PH-MissBench: Rare-Outcome Prediction Tasks with Real, Agency-Documented Missingness from U.S. Birth Records.</i> Preprints.org.<span class="m"><a href="https://doi.org/10.20944/preprints202610.2437.v1">doi:10.20944/preprints202610.2437.v1</a> · <a href="https://github.com/SelormB/ph-missbench">code &amp; tasks</a></span></div>
+      <div class="pub">Buaka, S. (2026). <i>Missingness-Aware Knowledge Distillation for Low Birthweight and Preterm Birth Prediction Under State-Specific Item Missingness in U.S. Birth Certificates.</i> Preprints.org.<span class="m"><a href="https://doi.org/10.20944/preprints202610.2567.v1">doi:10.20944/preprints202610.2567.v1</a> · <a href="https://github.com/SelormB/makd-natality">code</a></span></div>
+      <div class="pub">Buaka, S. (2026). <i>County Birth-Record Completeness in Public U.S. Natality Data: A Suppression-Aware County Index, 2016–2024.</i> Preprints.org.<span class="m"><a href="https://doi.org/10.20944/preprints202610.2542.v1">doi:10.20944/preprints202610.2542.v1</a> · <a href="https://github.com/SelormB/cbrci">code</a></span></div>
+    </div>
+
+    <div class="pubgroup">
+      <h3 style="background:var(--coral-s);color:var(--coral)">Under review</h3>
+      <div class="pub">Buaka, S., Yu, H., &amp; Huang, H. (2026). <i>Optimizing Neonatal Risk Detection with High-Performance Machine Learning Models Using Maternal, Prenatal, and Environmental Predictors in Ghana.</i><span class="m">Submitted to Maternal and Child Health Journal</span></div>
+    </div>
+
+    <div class="pubgroup">
+      <h3 style="background:var(--indigo-s);color:var(--indigo)">In preparation</h3>
+      <div class="pub">Merchant, W., Buaka, S., et al. (2026). <i>Machine Learning Methods for Structurally Complex Branching Survey Data.</i></div>
+      <div class="pub">Powell, E., Buaka, S., &amp; Heacox, D. (2026). <i>The Weight of the Room: A Narrative Inquiry into the Perceived Culture of Strength Training Spaces Among Perimenopausal Women.</i></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--amber)">Experience</div><h2>Where I've worked</h2></div>
+    <div class="tl">
+
+      <div class="job" style="--dot:var(--coral)">
+        <div class="when">Jan 2025 – present</div>
+        <h3>Evaluator, GLS Suicide Prevention Grant</h3>
+        <div class="where">University of Northern Colorado</div>
+        <ul>
+          <li>Led a comprehensive suicide prevention needs assessment for the Garrett Lee Smith grant.</li>
+          <li>Analyzed CDC, BRFSS, NCHA, 911 dispatch, and county public health datasets to identify trends, risk factors, and service gaps.</li>
+          <li>Interviewed stakeholders and combined quantitative and qualitative findings for prevention planning, evaluation, and grant reporting.</li>
         </ul>
       </div>
-      <div>
-        <h3 class="sub" style="margin-top:0">Honors</h3>
-        <ul class="plain">
-          <li>Graduate Statistician (GStat), American Statistical Association, 2026</li>
-          <li>Accepted Participant, Rocky Mountain Workshop on Trustworthy and Responsible AI, CU Boulder, 2026</li>
-          <li>Selected Participant, PEARC26 Student Program, 2026</li>
-          <li>Selected Participant, SDSC HPC &amp; Data Science Summer Institute, 2026</li>
-          <li>Selected Participant, RMACC HPC Student Apprenticeship, 2026</li>
-        </ul>
-        <h3 class="sub">Memberships</h3>
-        <ul class="plain">
-          <li>American Statistical Association · Royal Statistical Society · ACM SIGHPC</li>
+
+      <div class="job" style="--dot:var(--amber)">
+        <div class="when">Aug 2023 – present</div>
+        <h3>Research Consultant</h3>
+        <div class="where">Research Consulting Lab, University of Northern Colorado</div>
+        <ul>
+          <li>Guide clients from research question through study design, data management, and statistical analysis.</li>
+          <li>Run hands-on training in R, SAS, and SPSS supporting published articles and dissertations.</li>
+          <li>Advise faculty, staff, and students on quantitative and qualitative study and survey design.</li>
         </ul>
       </div>
+
+      <div class="job" style="--dot:var(--teal)">
+        <div class="when">May – Aug 2026</div>
+        <h3>Public Health Data Systems Analyst Intern</h3>
+        <div class="where">Weld County Public Health &amp; Environment, Greeley, CO</div>
+        <ul>
+          <li>Assessed Mobile Health Unit data systems across three divisions with the FCSM data quality framework.</li>
+          <li>Audited operational data and interviewed Public Health Services, Community Health, and Environmental Health teams.</li>
+          <li>Built data quality scorecards, assessed geocoding readiness for Getis-Ord Gi* hotspot analysis, and designed MHU dashboards for leadership, commissioners, and state funders.</li>
+        </ul>
+      </div>
+
+      <div class="job" style="--dot:var(--teal)">
+        <div class="when">May – Aug 2026</div>
+        <h3>Behavioral Health Data Systems Analyst Intern</h3>
+        <div class="where">Health District of Northern Larimer County / MHSU Alliance, Fort Collins, CO</div>
+        <ul>
+          <li>Ran environmental scans and cross-district analyses of youth behavioral health data systems.</li>
+          <li>Built survey-instrument crosswalks and supported shared countywide metrics aligned with CO-MTSS.</li>
+          <li>Evaluated universal screening tools and worked with school districts and the Youth Mental Health Task Force.</li>
+        </ul>
+      </div>
+
+      <div class="job" style="--dot:var(--indigo)">
+        <div class="when">Jan 2026</div>
+        <h3>High Performance Computing Apprentice</h3>
+        <div class="where">Computing Center, University of Colorado Boulder</div>
+        <ul>
+          <li>One of 40 participants selected for the RMACC HPC Student Cohort.</li>
+          <li>Worked with image-based node provisioning, Slurm scheduler monitoring, and maintenance planning on production systems.</li>
+        </ul>
+      </div>
+
+      <div class="job" style="--dot:var(--plum)">
+        <div class="when">Aug – Dec 2024</div>
+        <h3>Graduate Instructor &amp; Statistics Tutor</h3>
+        <div class="where">Introduction to Statistical Analysis · Statistics Support Center, University of Northern Colorado</div>
+        <ul>
+          <li>Taught undergraduate statistics: lectures, course materials, assessment, and office hours.</li>
+          <li>Tutored graduate students in advanced statistics and research methods.</li>
+        </ul>
+      </div>
+
+      <div class="job" style="--dot:var(--sky)">
+        <div class="when">Jan 2021 – Jul 2023</div>
+        <h3>Business Analyst</h3>
+        <div class="where">Sync Consult, Accra, Ghana</div>
+        <ul>
+          <li>Statistical, market, and financial analysis for 200+ companies toward investor readiness.</li>
+          <li>Coordinated valuation and feasibility studies for projects worth over $700 million.</li>
+          <li>Supported the Invest in Africa and Mastercard Foundation COVID-19 Recovery and Resilience Program, and grant evaluation for 42 SMEs.</li>
+        </ul>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="service">
-    <h2>Public Comments to Federal Agencies</h2>
-    <ul class="plain">
-      <li>Statistical comment on the proposed redesign of the National Health Interview Survey (NHIS), NCHS. <a href="https://www.regulations.gov/comment/CDC-2026-1387-0039">CDC-2026-1387-0039</a> · Oct 5, 2026</li>
-      <li>Statistical comment on the 2027 National Post-acute and Long-term Care Study (NPALS), NCHS. <a href="https://www.regulations.gov/comment/CDC-2026-1354-0004">CDC-2026-1354-0004</a> · Oct 5, 2026</li>
-      <li>Statistical comment on Colorectal Cancer Control Program clinic-level monitoring data collection, CDC. <a href="https://www.regulations.gov/comment/CDC-2026-1552-0003">CDC-2026-1552-0003</a> · Oct 5, 2026</li>
-      <li>Statistical comment on the evaluation of public health data intermediaries, CDC. <a href="https://www.regulations.gov/comment/CDC-2026-1519-0022">CDC-2026-1519-0022</a> · Oct 13, 2026</li>
-      <li>Statistical comment on the NIOSH respirator approval information collection. <a href="https://www.regulations.gov/comment/CDC-2026-1619-0002">CDC-2026-1619-0002</a>, <a href="https://www.regulations.gov/comment/CDC-2026-1619-0003">-0003</a> · Oct 14, 2026</li>
-    </ul>
-  </section>
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--indigo)">Toolkit</div><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="sk s1"><h3>Software</h3><div class="chips">
+        <span class="chip">R</span><span class="chip">Python</span><span class="chip">SAS</span><span class="chip">SQL</span><span class="chip">SPSS</span><span class="chip">Tableau</span><span class="chip">QGIS</span><span class="chip">Git / GitHub</span>
+      </div></div>
+      <div class="sk s2"><h3>Statistical methods</h3><div class="chips">
+        <span class="chip">Missing-data methods</span><span class="chip">Multiple imputation</span><span class="chip">Pattern submodels</span><span class="chip">Interval-censored likelihoods</span><span class="chip">Complex survey design &amp; weighting</span><span class="chip">Clinical prediction &amp; calibration</span><span class="chip">Knowledge distillation</span><span class="chip">Regression modeling</span><span class="chip">Survival analysis</span><span class="chip">Machine learning</span>
+      </div></div>
+      <div class="sk s3"><h3>Research computing</h3><div class="chips">
+        <span class="chip">Linux</span><span class="chip">HPC</span><span class="chip">Slurm</span><span class="chip">scikit-learn</span><span class="chip">LightGBM</span><span class="chip">pandas</span><span class="chip">Reproducible pipelines</span><span class="chip">AI/ML workflows</span>
+      </div></div>
+    </div>
+  </div>
+</section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Open to research collaborations and conversations about public health data, evaluation, and missing-data methods.</p>
-    <p>Email: <a href="mailto:othnielbuaka@gmail.com">othnielbuaka@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/othniel-buaka">linkedin.com/in/othniel-buaka</a></p>
-    <p>GitHub: <a href="https://github.com/SelormB">github.com/SelormB</a></p>
-    <p>ORCID: <a href="https://orcid.org/0009-0005-3991-4859">0009-0005-3991-4859</a></p>
-  </section>
+<section id="credentials" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--teal)">Credentials</div><h2>Education, honors &amp; memberships</h2></div>
+    <div class="creds">
+      <div class="cr" style="border-top-color:var(--teal)"><h3>Education</h3><ul>
+        <li><b>PhD, Applied Statistics &amp; Research Methods</b><small>University of Northern Colorado · 2025 – present</small></li>
+        <li><b>MS, Applied Statistics &amp; Research Methods</b><small>University of Northern Colorado · 2023 – 2025</small></li>
+        <li><b>BSc, Statistics</b><small>Kwame Nkrumah University of Science and Technology, Ghana · 2016 – 2020</small></li>
+      </ul></div>
+      <div class="cr" style="border-top-color:var(--coral)"><h3>Honors &amp; selection</h3><ul>
+        <li><b>Graduate Statistician (GStat)</b><small>American Statistical Association · June 2026</small></li>
+        <li><b>Accepted participant</b><small>Rocky Mountain Workshop on Trustworthy and Responsible AI, CU Boulder · 2026</small></li>
+        <li><b>Selected participant</b><small>PEARC26 Student Program · 2026</small></li>
+        <li><b>Selected participant</b><small>SDSC HPC &amp; Data Science Summer Institute · 2026</small></li>
+        <li><b>Selected participant</b><small>RMACC HPC Student Apprenticeship · 2026</small></li>
+      </ul></div>
+      <div class="cr" style="border-top-color:var(--indigo)"><h3>Memberships &amp; training</h3><ul>
+        <li><b>American Statistical Association</b></li>
+        <li><b>Royal Statistical Society</b></li>
+        <li><b>ACM SIGHPC</b></li>
+        <li><b>Johns Hopkins (Coursera)</b><small>Essential Epidemiological Tools · Outbreaks and Epidemics · Python for Genomic Data Science · 2024</small></li>
+        <li><b>Imperial College London (Coursera)</b><small>Statistics and Data Analysis in Public Health · 2024</small></li>
+      </ul></div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px"><div class="kick" style="color:var(--plum)">Conferences &amp; institutes</div><h2>Where I've been learning</h2></div>
+    <div class="events">
+      <div class="ev"><div class="d" style="background:var(--coral)">NOV<br>2026</div><div><b>Rocky Mountain Workshop on Trustworthy &amp; Responsible AI</b><span>University of Colorado Boulder · accepted participant</span></div></div>
+      <div class="ev"><div class="d" style="background:var(--amber)">AUG<br>2026</div><div><b>HPC &amp; Data Science Summer Institute</b><span>San Diego Supercomputer Center, UC San Diego</span></div></div>
+      <div class="ev"><div class="d" style="background:var(--teal)">JUL<br>2026</div><div><b>PEARC26</b><span>ACM, Minneapolis, MN</span></div></div>
+      <div class="ev"><div class="d" style="background:var(--indigo)">JUN<br>2026</div><div><b>AI Unlocked: Empowering Higher Education</b><span>ACCESS/NAIRR &amp; CU Boulder, Denver, CO</span></div></div>
+      <div class="ev"><div class="d" style="background:var(--plum)">JUN<br>2026</div><div><b>CyberSTAR: Secure Transportation &amp; Reliable Autonomy</b><span>George Mason University, Fairfax, VA</span></div></div>
+      <div class="ev"><div class="d" style="background:var(--sky)">MAY<br>2026</div><div><b>RMACC HPC Symposium</b><span>Rocky Mountain Advanced Computing Consortium, Boise, ID</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="comments">
+  <div class="wrap">
+    <div class="sec-head"><div class="kick" style="color:var(--sky)">Policy engagement</div><h2>Public comments to federal agencies</h2><p>Statistical comments submitted through Regulations.gov on proposed federal data collections.</p></div>
+    <div class="cmt">
+      <div class="cm"><div class="ag">NCHS · Oct 5, 2026</div><b>National Health Interview Survey (NHIS) redesign</b><a href="https://www.regulations.gov/comment/CDC-2026-1387-0039">CDC-2026-1387-0039 →</a></div>
+      <div class="cm"><div class="ag">NCHS · Oct 5, 2026</div><b>2027 National Post-acute and Long-term Care Study</b><a href="https://www.regulations.gov/comment/CDC-2026-1354-0004">CDC-2026-1354-0004 →</a></div>
+      <div class="cm"><div class="ag">CDC · Oct 5, 2026</div><b>Colorectal Cancer Control Program clinic-level monitoring</b><a href="https://www.regulations.gov/comment/CDC-2026-1552-0003">CDC-2026-1552-0003 →</a></div>
+      <div class="cm"><div class="ag">CDC · Oct 13, 2026</div><b>Evaluation of public health data intermediaries</b><a href="https://www.regulations.gov/comment/CDC-2026-1519-0022">CDC-2026-1519-0022 →</a></div>
+      <div class="cm"><div class="ag">NIOSH · Oct 14, 2026</div><b>Respirator approval information collection</b><a href="https://www.regulations.gov/comment/CDC-2026-1619-0002">CDC-2026-1619-0002</a> · <a href="https://www.regulations.gov/comment/CDC-2026-1619-0003">-0003 →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Let's work together</h2>
+      <p>I'm open to research collaborations, methods consulting, and conversations about public health data quality, evaluation, and missing-data methods.</p>
+      <div class="btns">
+        <a class="btn solid" href="mailto:othnielbuaka@gmail.com">othnielbuaka@gmail.com</a>
+        <a class="btn" href="https://linkedin.com/in/othniel-buaka">LinkedIn</a>
+        <a class="btn" href="https://github.com/SelormB">GitHub</a>
+        <a class="btn" href="https://orcid.org/0009-0005-3991-4859">ORCID 0009-0005-3991-4859</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<footer>
-  <div class="wrap">© 2026 Selorm Buaka · Greeley, Colorado</div>
-</footer>
+<footer>© 2026 Selorm Buaka · Greeley, Colorado</footer>
 
 </body>
 </html>
