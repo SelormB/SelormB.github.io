@@ -367,9 +367,15 @@
       </div>
 
       <div class="pc b-sky">
-        <div class="meta">RMACC · HPC</div>
-        <h3>High-Performance Computing Workflows</h3>
-        <p>Ran batch and interactive Slurm jobs on the Alpine supercomputer for simulation-heavy statistical workflows, managing CPU, memory, and wall-time for scalable, reproducible analyses.</p>
+        <div class="meta">Purdue Anvil · Slurm job arrays</div>
+        <h3>Parallel Epidemiological Simulation Using Slurm Job Arrays</h3>
+        <p>A parameter sweep run as a single Slurm job array on Purdue Anvil. Four array tasks each simulate 100 populations of 1,000 people under a different infection probability (10–40%), with infections modeled as Binomial(1000, p). The simulated averages (102.86, 199.40, 299.78, 398.30) closely match the theoretical values.</p>
+        <a class="more" href="https://github.com/SelormB/Epidemiology">View repository →</a>
+      </div>
+      <div class="pc b-teal">
+        <div class="meta">Alpine · Monte Carlo</div>
+        <h3>Monte Carlo Simulation on the Alpine Cluster</h3>
+        <p>A Slurm batch workflow on CU Boulder's Alpine supercomputer simulating the sampling distribution of the mean: 1,000 replicates of n = 100 from N(0,1). The empirical SD of 0.102 matched the theoretical standard error of 0.10.</p>
         <a class="more" href="https://github.com/SelormB/Hpc_new">View repository →</a>
       </div>
 
