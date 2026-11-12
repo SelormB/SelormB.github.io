@@ -161,6 +161,15 @@
   .cr li { margin-bottom: 12px; }
   .cr li small { display: block; color: var(--muted); font-size: 13px; }
 
+
+  /* certifications */
+  .certs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cert { display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--c); border-radius: 12px; padding: 16px 18px; }
+  .cert .badge { flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; letter-spacing: .03em; }
+  .cert b { display: block; font-size: 15.5px; }
+  .cert span { display: block; font-size: 14px; color: var(--muted); }
+  .cert em { font-style: normal; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--c); }
+
   /* events */
   .events { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .ev { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
@@ -182,7 +191,7 @@
   footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align: center; }
 
   @media (max-width: 860px) {
-    .about, .feat, .themes, .proj, .skills, .creds, .events, .cmt { grid-template-columns: 1fr; }
+    .about, .feat, .themes, .proj, .skills, .creds, .events, .cmt, .certs { grid-template-columns: 1fr; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .hero h1 { font-size: 42px; }
     .hero h1 span { display: block; margin: 6px 0 0; font-size: 20px; }
@@ -205,6 +214,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#comments">Service</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -575,13 +585,20 @@
         <li><b>Selected participant</b><small>SDSC HPC &amp; Data Science Summer Institute · 2026</small></li>
         <li><b>Selected participant</b><small>RMACC HPC Student Apprenticeship · 2026</small></li>
       </ul></div>
-      <div class="cr" style="border-top-color:var(--indigo)"><h3>Memberships &amp; training</h3><ul>
+      <div class="cr" style="border-top-color:var(--indigo)"><h3>Memberships</h3><ul>
         <li><b>American Statistical Association</b></li>
         <li><b>Royal Statistical Society</b></li>
         <li><b>ACM SIGHPC</b></li>
-        <li><b>Johns Hopkins (Coursera)</b><small>Essential Epidemiological Tools · Outbreaks and Epidemics · Python for Genomic Data Science · 2024</small></li>
-        <li><b>Imperial College London (Coursera)</b><small>Statistics and Data Analysis in Public Health · 2024</small></li>
       </ul></div>
+    </div>
+
+    <div class="sec-head" id="certifications" style="margin-top:56px"><div class="kick" style="color:var(--coral)">Certifications</div><h2>Certifications &amp; professional training</h2></div>
+    <div class="certs">
+      <div class="cert" style="--c:var(--coral)"><div class="badge">ASA</div><div><b>Graduate Statistician (GStat) Accreditation</b><span>American Statistical Association (ASA)</span><em>June 2026</em></div></div>
+      <div class="cert" style="--c:var(--teal)"><div class="badge">JHU</div><div><b>Essential Epidemiological Tools for Public Health</b><span>Coursera · Johns Hopkins University</span><em>June 2024</em></div></div>
+      <div class="cert" style="--c:var(--indigo)"><div class="badge">JHU</div><div><b>Python for Genomic Data Science</b><span>Coursera · Johns Hopkins University</span><em>July 2024</em></div></div>
+      <div class="cert" style="--c:var(--amber)"><div class="badge">JHU</div><div><b>Outbreaks and Epidemics</b><span>Coursera · Johns Hopkins University</span><em>June 2024</em></div></div>
+      <div class="cert" style="--c:var(--plum)"><div class="badge">ICL</div><div><b>Introduction to Statistics and Data Analysis in Public Health</b><span>Coursera · Imperial College London</span><em>July 2024</em></div></div>
     </div>
 
     <div class="sec-head" style="margin-top:56px"><div class="kick" style="color:var(--plum)">Conferences &amp; institutes</div><h2>Where I've been learning</h2></div>
