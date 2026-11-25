@@ -110,6 +110,8 @@
   .c-coral .band, .c-coral .pill { background: var(--coral); } .c-coral .tag { background: var(--coral-s); color: var(--coral); } .c-coral .pill.ghost { color: var(--coral); }
   .c-indigo .band, .c-indigo .pill { background: var(--indigo); } .c-indigo .tag { background: var(--indigo-s); color: var(--indigo); } .c-indigo .pill.ghost { color: var(--indigo); }
   .c-amber .band, .c-amber .pill { background: var(--amber); } .c-amber .tag { background: var(--amber-s); color: var(--amber); } .c-amber .pill.ghost { color: var(--amber); }
+  .c-plum .band, .c-plum .pill { background: var(--plum); } .c-plum .tag { background: var(--plum-s); color: var(--plum); } .c-plum .pill.ghost { color: var(--plum); }
+  .feat .paper.wide { grid-column: 1 / -1; }
 
   /* applied projects */
   .proj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -282,7 +284,7 @@
 
 <section id="research">
   <div class="wrap">
-    <div class="sec-head"><div class="kick" style="color:var(--teal)">Featured research</div><h2>Methods research</h2><p>Four sole-author statistical methods projects released in 2026, each with a public preprint and open code. They are developed and tested on large national datasets.</p></div>
+    <div class="sec-head"><div class="kick" style="color:var(--teal)">Featured research</div><h2>Methods research</h2><p>Five sole-author statistical methods projects from 2026, all with open code; four have public preprints. They are developed and tested on large national datasets and on high-performance computing clusters.</p></div>
     <div class="feat">
 
       <article class="paper c-coral">
@@ -346,6 +348,22 @@
           </ul>
           <div class="nums"><span>570 counties</span><span>26.4M births</span><span>Python package <code>cbrci</code></span></div>
           <div class="foot"><a class="pill" href="https://doi.org/10.20944/preprints202610.2542.v1">Read preprint</a><a class="pill ghost" href="https://github.com/SelormB/cbrci">Code</a></div>
+        </div>
+      </article>
+
+      <article class="paper c-plum wide">
+        <div class="band"></div>
+        <div class="body">
+          <span class="tag">Mobile health · Methods · HPC</span>
+          <h3>STAR: Sensitivity Analysis for Off-Policy Evaluation When Mobile Health Rewards Are Missing Not at Random</h3>
+          <p>Wearable step counts in micro-randomized trials go missing in non-wear spells, possibly on people's least active days. STAR evaluates mobile health decision rules across a range of assumptions about that missingness, using an exponential-tilt sensitivity parameter and two estimators: a joint model fitted by a semiparametric EM algorithm (STAR-EM) and a tilted doubly robust estimator (STAR-DR).</p>
+          <ul>
+            <li>Plasmode simulation built from HeartSteps: 8 scenarios, 7,300 simulated trials, run as 430 SLURM array jobs on the Anvil (Purdue) and Alpine (CU Boulder) clusters.</li>
+            <li>Ignoring prompt-dependent missingness biased standard methods by 130 to 250 steps per day; STAR-DR was the only correction near unbiased under hidden activity states and about eight times cheaper than STAR-EM.</li>
+            <li>Applied to HeartSteps V1, with tipping-point analysis and worst-case bounds; EM matched direct maximum likelihood 25 to 100 times faster.</li>
+          </ul>
+          <div class="nums"><span>7,300 simulated trials</span><span>430 HPC jobs</span><span>2 clusters</span></div>
+          <div class="foot"><a class="pill" href="https://github.com/SelormB/STAR-mnar-ope/blob/main/paper/STAR_paper.pdf">Read paper</a><a class="pill ghost" href="https://github.com/SelormB/STAR-mnar-ope">Code &amp; results</a></div>
         </div>
       </article>
 
@@ -447,6 +465,7 @@
 
     <div class="pubgroup">
       <h3 style="background:var(--indigo-s);color:var(--indigo)">In preparation</h3>
+      <div class="pub">Buaka, S. (2026). <i>STAR: A Sensitivity-Analysis Framework for Off-Policy Evaluation When Mobile Health Rewards Are Missing Not at Random.</i><span class="m"><a href="https://github.com/SelormB/STAR-mnar-ope/blob/main/paper/STAR_paper.pdf">paper</a> · <a href="https://github.com/SelormB/STAR-mnar-ope">code</a></span></div>
       <div class="pub">Merchant, W., Buaka, S., et al. (2026). <i>Machine Learning Methods for Structurally Complex Branching Survey Data.</i></div>
       <div class="pub">Powell, E., Buaka, S., &amp; Heacox, D. (2026). <i>The Weight of the Room: A Narrative Inquiry into the Perceived Culture of Strength Training Spaces Among Perimenopausal Women.</i></div>
     </div>
